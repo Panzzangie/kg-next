@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Running the KG website locally
 
-## Getting Started
+This app is build in React and can be run locally with a node.js server.
 
-First, run the development server:
+Prerequisites:
+* Node.js
+* npm
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+These can, and should both be managed through the [Node Version Manager](https://github.com/nvm-sh/nvm)
+For Win10, follow instructions in this [tutorial](https://www.freecodecamp.org/news/nvm-for-windows-how-to-download-and-install-node-version-manager-in-windows-10/) to get both running.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once both npm and node.js have been installed, open a terminal window in the root of the project and install all the dependencies by running `npm install`. The website can then be deployed locally by running the `npm run dev` command. Once built, the website will be available on [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Things to know in editing the website
 
-## Learn More
+Current techstack of the website is a relatively straight forward only really using Next.js/React app with TypeScript.
 
-To learn more about Next.js, take a look at the following resources:
+MUI component library based on Material Design is also installed for styled button components etc. Colour theming is to be decided on at a later time.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Next.js Routing
+Using Next.js 13 for routing means the folder structure of the app defines the routing and it means that you'll see many files titled page.tsx. Each folder under `app` creates a route automatically that seeks to render the `page.tsx` directly under it. Nested folders under behave the same way.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Each raid/dungeon/etc. that will use the same template across multiple options will rely on a dynamic route defined with a folder name enclosed in [], such as `[raid]` where the raid name will be dynamically filled into the url and the parameter extracted in the `page.tsx` component to fetch the correct data.
 
-## Deploy on Vercel
+Example: 
+    `kinderguardians.community/raid` will render component under src/app/raids/page.tsx and `kinderguardians.community/raids/lastwish` will render a version of  src/app/raids/[raid]/page.tsx with the data for Last Wish injected.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Techstack resources
+* [Next.js Documentation](https://nextjs.org/docs) 
+* [Learn Next.js](https://nextjs.org/learn)
+* [React Documentation](https://react.dev/)
+* [MUI Documentation](https://mui.com)
+
+## TODOs
+Open tasks for the base of the website can be found in this issue (FILL IN HERE)
+
+**Key issues**
+* Data storage -  JSON contained in website vs. lightweight database option like [PocketBase](https://pocketbase.io/)
+* Design
+* Limiting dynamic routes to valid values
+
+**Version 2 tasks**
+* Full responsive design
+* Accessibility
+* Dark/Light theming
+
+
+ʕ ᵔᴥᵔ ʔ
