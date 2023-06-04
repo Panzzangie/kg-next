@@ -12,14 +12,16 @@ export const Header = (props: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.topSection}>
-        <div className={styles.logoContainer}>
-          <Image
-            src={kgLogo}
-            alt='Kinderguardians logo'
-            height={140}
-            width={140}
-          />
-        </div>
+        <Link href={'/'}>
+          <div className={styles.logoContainer}>
+            <Image
+              src={kgLogo}
+              alt='Kinderguardians logo'
+              height={140}
+              width={140}
+            />
+          </div>
+        </Link>
         hello this is panda
         <div>
           <Link

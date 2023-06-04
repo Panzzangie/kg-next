@@ -14,11 +14,21 @@ const raids: NavDropdownItem[] = [
   { title: 'Root of Nightmares', link: '/raids/rootofnightmares' },
 ]
 
+const dungeons: NavDropdownItem[] = [
+  { title: 'Shattered Throne', link: '/dungeons/shatteredthrone' },
+  { title: 'Pit of Heresy', link: '/dungeons/pitofheresy' },
+  { title: 'Prophecy', link: '/dungeons/prophecy' },
+  { title: 'Grasp of Avarice', link: '/dungeons/graspofavarice' },
+  { title: 'Duality', link: '/dungeons/duality' },
+  { title: 'Spire of the Watcher', link: '/dungeons/spireofthewatcher' },
+  { title: 'Ghosts of the Deep', link: '/dungeons/ghostsofthedeep' },
+]
+
 export const NavBar = (props: Props) => {
   return (
     <div className={styles.container}>
       <NavItem title={'Raids'} link={'/raids'} dropdownItems={raids} />
-      <NavItem title={'Dungeons'} link={'/dungeons'} />
+      <NavItem title={'Dungeons'} link={'/dungeons'} dropdownItems={dungeons} />
       <NavItem title={'New Light Guide'} link={'/newlight'} />
     </div>
   )
@@ -36,8 +46,6 @@ interface NavDropdownItem {
 }
 
 const NavItem = (props: NavItemProps) => {
-  console.log(props.dropdownItems)
-
   // TODO menu link styling
   return (
     <div className={styles.navItem}>
@@ -46,9 +54,9 @@ const NavItem = (props: NavItemProps) => {
       </Link>
       <div className={styles.dropdownContent}>
         {props.dropdownItems?.map(i => (
-          <div className={styles.item} key={i.title}>
-            {i.title}
-          </div>
+          <Link href={i.link} key={i.title}>
+            <div className={styles.item}>{i.title}</div>
+          </Link>
         ))}
       </div>
     </div>
