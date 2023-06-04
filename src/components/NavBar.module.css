@@ -6,9 +6,35 @@
 .navItem {
   height: 30px;
   margin: 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-transform: uppercase;
   cursor: pointer;
+  float: left;
+  overflow: hidden;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+.navItem:hover .dropdownContent {
+  display: block;
+}
+
+.item {
+  height: 30px;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+  padding-right: 12px;
+}
+
+.item:hover {
+  background-color: aqua;
 }

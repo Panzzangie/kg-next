@@ -1,9 +1,6 @@
-'use client'
-
 import * as React from 'react'
 import styles from './NavBar.module.css'
-import { useState } from 'react'
-import Popover from '@mui/material/Popover'
+import Link from 'next/link'
 
 interface Props {}
 
@@ -39,54 +36,21 @@ interface NavDropdownItem {
 }
 
 const NavItem = (props: NavItemProps) => {
-  const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null)
-  // const [isHovered, setIsHovered] = useState<boolean>(false)
-  const shouldHaveDropdown =
-    props.dropdownItems && props.dropdownItems.length > 0
+  console.log(props.dropdownItems)
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    setAnchorEl(e.currentTarget)
-  }
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    setAnchorEl(null)
-  }
   // TODO menu link styling
   return (
     <div className={styles.navItem}>
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <a style={{ all: 'unset' }} href={props.link}>
-          <div>{props.title}</div>
-        </a>
+      <Link href={props.link}>
+        <div>{props.title}</div>
+      </Link>
+      <div className={styles.dropdownContent}>
+        {props.dropdownItems?.map(i => (
+          <div className={styles.item} key={i.title}>
+            {i.title}
+          </div>
+        ))}
       </div>
-      {shouldHaveDropdown ? (
-        <div>
-          <Popover
-            id='mouse-over-popover'
-            sx={{
-              pointerEvents: 'none',
-            }}
-            open={!!anchorEl}
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-            onClose={handleMouseLeave}
-            disableRestoreFocus
-          >
-            <div>
-              {props.dropdownItems?.map(i => (
-                <div key={i.title}>{i.title}</div>
-              ))}
-            </div>
-          </Popover>
-        </div>
-      ) : null}
     </div>
   )
 }
