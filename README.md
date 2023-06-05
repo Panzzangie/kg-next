@@ -6,6 +6,7 @@ Prerequisites:
 
 - Node.js
 - npm
+- (TypeScript)
 
 These can, and should both be managed through the [Node Version Manager](https://github.com/nvm-sh/nvm)
 For Win10, follow instructions in this [tutorial](https://www.freecodecamp.org/news/nvm-for-windows-how-to-download-and-install-node-version-manager-in-windows-10/) to get both running.
@@ -15,6 +16,8 @@ Once both npm and node.js have been installed, open a terminal window in the roo
 ## Things to know in editing the website
 
 Current techstack of the website is a relatively straight forward only really using Next.js/React app with TypeScript.
+
+To commit edits to the repo, you need to configure *git*. [The website](https://git-scm.com/downloads) looks a bit dodgy, but just trust the process of it being made by people that do not care about UI.
 
 [MUI](https://mui.com) component library based on Material Design is also installed for styled button components etc. Colour theming is to be decided on at a later time. We can also opt to handcraft needed components since so far at least there aren't many, but for now MUI does the job. (Need a button? They've got you covered.)
 
@@ -39,6 +42,10 @@ Some layouting is done through Next.js layouts, which are defined similarly to t
 
 CSS files are module based. Each `.tsx` file that requires CSS should have an associated `.module.css` file that is imported. CSS modules alow using the same class names in multiple places without a worry of one overriding another.
 
+### GitHub workflow
+
+When wanting to edit the website, please make a branch off of `main` (which will hold the deployable version of the website) and prefereably name the branch something somewhat descriptive. Once you have made your changes, create a pull request to `main`. This pull request can be merged once any collaborator has approved the changes, just as a sanity check.
+
 ## Techstack resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
@@ -47,8 +54,6 @@ CSS files are module based. Each `.tsx` file that requires CSS should have an as
 - [MUI Documentation](https://mui.com)
 
 ## TODOs
-
-Open tasks for the base of the website can be found in this issue (FILL IN HERE)
 
 **Key issues**
 
