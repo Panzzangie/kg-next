@@ -60,7 +60,6 @@ When wanting to edit the website, please make a branch off of `main` (which will
 - Favicon and other meta data
 - Data storage - JSON contained in website vs. lightweight database option like [PocketBase](https://pocketbase.io/)
 - Design
-- Limiting dynamic routes to valid params
 - Error pages and handling (at least 404)
 - Raid/Dungeon layouting
 - Content
