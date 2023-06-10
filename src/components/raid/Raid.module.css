@@ -1,0 +1,11 @@
+.tabsList {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.tabContentContainer {
+  flex-grow: 1;
+  padding: 16px;
+}
